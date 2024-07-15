@@ -1,0 +1,42 @@
+name: Sync CAPI and CAPV main to fork
+on: 
+  schedule: 
+    # Daily at 4:20 UTC
+    - cron: '20 * * * *'
+
+  workflow_dispatch: {}
+
+jobs:
+  sync-capv:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - run: gh repo sync --branch main team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.7 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.8 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.9 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.10 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+
+  sync-capi:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - run: gh repo sync --branch main team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.6 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.7 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
