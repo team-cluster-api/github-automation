@@ -26,6 +26,9 @@ jobs:
       - run: gh repo sync --branch release-1.10 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.11 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
 
   sync-capi:
     runs-on: ubuntu-latest
