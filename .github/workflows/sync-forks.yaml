@@ -43,6 +43,9 @@ jobs:
       - run: gh repo sync --branch release-1.7 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.8 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
 
   sync-cpi-vsphere:
     runs-on: ubuntu-latest
