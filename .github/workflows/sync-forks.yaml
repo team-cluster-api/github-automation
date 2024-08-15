@@ -54,3 +54,12 @@ jobs:
       - run: gh repo sync --branch master team-cluster-api/cloud-provider-vsphere --source kubernetes-sigs/cloud-provider-vsphere
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.31 team-cluster-api/cloud-provider-vsphere --source kubernetes-sigs/cloud-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.30 team-cluster-api/cloud-provider-vsphere --source kubernetes-sigs/cloud-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.29 team-cluster-api/cloud-provider-vsphere --source kubernetes-sigs/cloud-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
