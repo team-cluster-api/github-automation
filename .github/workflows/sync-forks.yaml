@@ -37,6 +37,12 @@ jobs:
       - run: gh repo sync --branch main team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.4 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.5 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
       - run: gh repo sync --branch release-1.6 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
