@@ -14,9 +14,6 @@ jobs:
       - run: gh repo sync --branch main team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
-      - run: gh repo sync --branch release-1.8 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
-        env:
-          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
       - run: gh repo sync --branch release-1.9 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
@@ -29,18 +26,15 @@ jobs:
       - run: gh repo sync --branch release-1.12 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.13 team-cluster-api/cluster-api-provider-vsphere --source kubernetes-sigs/cluster-api-provider-vsphere
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
 
   sync-capi:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
       - run: gh repo sync --branch main team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
-        env:
-          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
-      - run: gh repo sync --branch release-1.5 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
-        env:
-          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
-      - run: gh repo sync --branch release-1.6 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
       - run: gh repo sync --branch release-1.7 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
@@ -50,6 +44,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
       - run: gh repo sync --branch release-1.9 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
+        env:
+          GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
+      - run: gh repo sync --branch release-1.10 team-cluster-api/cluster-api --source kubernetes-sigs/cluster-api
         env:
           GITHUB_TOKEN: ${{ secrets.SYNC_ACCESS_TOKEN }}
 
